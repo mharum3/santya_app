@@ -8,27 +8,34 @@
     <script src="https://kit.fontawesome.com/c211def1f3.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&display=swap" rel="stylesheet">
   </head>
 
-  
-  <header>
-   <h1>グルメな街「三軒茶屋」</h1>
-   
-   <div class="header-list">
-    <ul>
-     <% if user_signed_in? %>
-      <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-     <% else %>
-      <li><%= link_to "新規登録", new_user_registration_path %></li>
-      <li><%= link_to "ログイン", new_user_session_path %></li>
-     <% end %>
-    </ul>
-    <img src="">
+  <body>
+    <header>
+    <h1><%= link_to "グルメな街「三軒茶屋」", tweets_path %></h1>
+    
+    <div class="header-list">
+      <ul>
+      <% if user_signed_in? %>
+        <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "新規登録", new_user_registration_path %></li>
+        <li><%= link_to "ログイン", new_user_session_path %></li>
+      <% end %>
+      </ul>
+      <img src="">
 
-   </div>
-  </header>
-  <main>
-   <%= yield %>
-  </main>
- 
+    </div>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <p>Copyright © GeekSalon All Rights Reserved.</p>
+    </footer>
+   </body> 
 </html>
