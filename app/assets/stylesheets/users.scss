@@ -1,0 +1,107 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.mypage{
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  font-weight: 400;
+  margin-right: 200px;
+  margin-left: 200px;
+  padding: 50px;
+}
+
+.comment{
+	margin: 2em auto;
+	padding:2em;/*内側余白*/
+	background-image: linear-gradient(0deg, transparent 19px, #ccc 20px),linear-gradient(90deg,  transparent 19px, #ccc 20px);
+	background-size: 20px 20px;
+}
+
+
+.signup{
+  position: relative;
+  background: #fff0cd;
+  box-shadow: 0px 0px 0px 5px #fff0cd;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  color: #454545;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 500px;
+}
+.signup:after{
+  position: absolute;
+  content: '';
+  right: -20px;
+  top: -7px;
+  border-width: 0 15px 15px 0;
+  border-style: solid;
+  border-color: #ffdb88 #fff #ffdb88;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.signup p {
+  margin: 0; 
+  padding: 0;
+}
+
+.login{
+  position: relative;
+  background: #fff0cd;
+  box-shadow: 0px 0px 0px 5px #fff0cd;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  color: #454545;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 500px;
+}
+.login:after{
+  position: absolute;
+  content: '';
+  right: -20px;
+  top: -7px;
+  border-width: 0 15px 15px 0;
+  border-style: solid;
+  border-color: #ffdb88 #fff #ffdb88;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.login p {
+  margin: 0; 
+  padding: 0;
+}
+
+.edit{
+  position: relative;
+  background: #fff0cd;
+  box-shadow: 0px 0px 0px 5px #fff0cd;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  color: #454545;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 500px;
+}
+
+.edit:after{
+  position: absolute;
+  content: '';
+  right: -20px;
+  top: -7px;
+  border-width: 0 15px 15px 0;
+  border-style: solid;
+  border-color: #ffdb88 #fff #ffdb88;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.edit p {
+  margin: 0; 
+  padding: 0;
+}

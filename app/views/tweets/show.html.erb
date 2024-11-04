@@ -1,0 +1,73 @@
+<h1>SANTYAグルメ</h1>
+<div class="comment">
+  <h2>投稿詳細</h2>
+    <p>クチコミ：<%= @tweet.about %></p>
+
+    キーワード：
+    <% @tweet.tags.each do |tag| %>
+    <span><%= tag.name %></span>
+    <% end %>
+
+  <h3>総合評価：
+  <span class="star-rating">
+    <span class="star-rating-front" style="width: <%= getPercent(@tweet.overall) %>%;">★★★★★</span>
+    <span class="star-rating-back">★★★★★</span>
+  </span> 
+  </h2>
+
+  <% if user_signed_in? %>
+    <% if current_user.already_liked?(@tweet) %>
+      <%= button_to tweet_like_path(@tweet), method: :delete do %>
+        <i class="fas fa-heart"></i><%= @tweet.likes.count %>
+      <% end %>
+    <% else %>
+      <%= button_to tweet_likes_path(@tweet), method: :post do %>
+        <i class="far fa-heart"></i><%= @tweet.likes.count %>
+      <% end %>
+    <% end %>
+  <% else %>
+  <i class="far fa-heart"></i><%= @tweet.likes.count %>
+  <% end %>
+
+  </div>
+ 
+  <div id='map'></div>
+
+<style>
+#map {
+  height: 600px;
+  width: 100%;
+}
+</style>
+
+<!-- js部分 -->
+<script>
+//初期マップの設定
+let map
+let marker
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center:  {lat: <%= @tweet.lat %>, lng: <%= @tweet.lng %>},
+    zoom: 15,
+  });
+
+   marker = new google.maps.Marker({
+    position:  {lat: <%= @tweet.lat %>, lng: <%= @tweet.lng %>},
+    map: map
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0j920Wyxy9Dm3BesRD9fm2gwoT6eci5c&callback=initMap" async defer></script>
+<%= link_to "編集する", edit_tweet_path(@tweet.id) %>
+
+<h2>いいねしたユーザー</h2>
+<% @tweet.liked_users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>
+
+<p><%= @tweet.created_at %></p>
+
+<%= link_to "投稿一覧に戻る", tweets_path %>
+<%= link_to "編集する", edit_tweet_path(@tweet.id) %>
